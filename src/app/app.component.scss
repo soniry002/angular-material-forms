@@ -1,0 +1,18 @@
+mat-icon-button {
+  color:#ffffff;
+}
+
+.app-div {
+  width:80%;
+  padding-left:2%;
+}
+
+.example-container {
+  top: 64px !important;
+ }
+
+ @media(max-width: 599px) {
+  .example-container {
+     top: 56px !important;
+   }
+ }

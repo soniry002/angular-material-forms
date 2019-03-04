@@ -1,0 +1,39 @@
+<div class="main-div">
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field class="form-element">
+      <input matInput placeholder="First Name" formControlName="firstName">
+      <mat-error *ngIf="!registerForm.controls['firstName'].valid && registerForm.controls['firstName'].touched">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Last Name" formControlName="lastName">
+      <mat-error *ngIf="!registerForm.controls['lastName'].valid && registerForm.controls['lastName'].touched">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Emailaddress" formControlName="email">
+      <mat-error *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
+        Invalid Email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Password" formControlName="password" type="password">
+      <mat-error *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+          Password must be minimum of length 6
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Confirm Password" formControlName="cpassword" type="password">
+      <mat-error *ngIf="!registerForm.controls['cpassword'].valid && registerForm.controls['cpassword'].touched">
+          Password must be minimum of length 6
+      </mat-error>
+    </mat-form-field>
+    <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!registerForm.valid">Register</button>&nbsp;&nbsp;
+        <a routerLink="/login" class="btn btn-link"><button mat-raised-button color="primary" class="button">Cancel</button></a>
+    </div>
+  </form>
+</div>

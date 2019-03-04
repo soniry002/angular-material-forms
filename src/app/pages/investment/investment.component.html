@@ -1,0 +1,21 @@
+<div>
+  <h1>List of Projects:</h1>
+  <table>
+    <thead>
+      <th>Project Name</th>
+      <th>Minimum Amount to be invested (EUR)</th>
+      <th>Invest</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of invstData;let index = index;trackBy:trackByIndex;">
+        <td>{{item.name}}</td>
+        <td>{{item.amount}}</td>
+        <td><span *ngIf="item.userInvstedAmt" matTooltip="You have already invested in this. You can invest only once">{{item.userInvstedAmt}}</span>
+        <span *ngIf="!item.userInvstedAmt">
+          <button mat-raised-button color="primary" (click)="invest(item)">Invest</button>
+        </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

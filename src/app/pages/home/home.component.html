@@ -1,0 +1,21 @@
+<h2>My Details</h2>
+<h3>Name: {{currentUser.firstName}} {{currentUser.lastName}}</h3>
+<h3>Email: {{currentUser.email}}</h3>
+<h3>Projects Invested In:</h3>
+<table>
+  <thead>
+    <th>Project Name</th>
+    <th>Amount Invested (EUR)</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of currentUser.investments">
+      <td>{{item.name}}</td>
+      <td>{{item.userInvstedAmt}}</td>
+    </tr>
+    <tr *ngIf="currentUser.investments?.length === 0">
+        <td colspan="2">No investments. Go to Invest tab to invest</td>
+    </tr>
+  </tbody>
+</table>
+
+

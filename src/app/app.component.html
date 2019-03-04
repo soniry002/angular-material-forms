@@ -1,0 +1,29 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="drawer.toggle()" *ngIf="currentUser">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Crowd Lending App</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" fullscreen>
+  <mat-sidenav #drawer mode="side" role="navigation">
+    <mat-nav-list *ngIf="currentUser">
+      <a mat-list-item routerLink='/'>My Profile</a>
+      <a mat-list-item routerLink='/invest'>Invest</a>
+      <a mat-list-item (click)="logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+              <div class="app-div">
+                  <app-alert></app-alert>
+                  <router-outlet></router-outlet>
+              </div>
+          </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

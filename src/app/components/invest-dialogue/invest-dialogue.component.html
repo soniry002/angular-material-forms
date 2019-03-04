@@ -1,0 +1,12 @@
+<div mat-dialog-title>{{data.name}}</div>
+<div mat-dialog-content>
+  <p>Minimum amount to be invested: {{data.amount}}</p>
+  <mat-form-field>
+    <input matInput [formControl]="amt" placeholder="Enter your amount in EUR" required type="number">
+    <mat-error *ngIf="amt.invalid && amt.touched">{{ errorMsg }}</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="button" mat-dialog-close>Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="amt.value" color="primary" class="button" [disabled]="amt.invalid">Ok</button>
+</div>
